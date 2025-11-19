@@ -17,6 +17,7 @@ fig = px.histogram(df, x=feature, nbins=50,
 st.plotly_chart(fig, use_container_width=True)
 
 df["pop_bin"] = pd.cut(df["track_popularity"], bins=5)
+df["pop_bin"] = df["pop_bin"].astype(str)   
 
 fig2 = px.box(df, x="pop_bin", y=feature,
               title=f"{feature.capitalize()} por faixa de popularidade")
